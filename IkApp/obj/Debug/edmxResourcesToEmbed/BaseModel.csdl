@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IK_NEWModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Info">
+    <Key>
+      <PropertyRef Name="Инвертарный_номер" />
+    </Key>
+    <Property Name="Номер_инвертарной_книги" Type="Int32" />
+    <Property Name="Инвертарный_номер" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Автор" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Название" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Сведения_об_ответсвенности" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Сведения_об_издании" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Сведения_о_серии_или_многочастном_ресурсе" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Примечание_содержания" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Раздел_систематического_каталога" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Место_издания" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Имя_издателя" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Год_издания" Type="DateTime" Precision="0" />
+    <Property Name="Отметки_о_выбытии" Type="Boolean" />
+    <Property Name="Примичание" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Цена" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Примичание_по_Большаковой" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="IK_NEWEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Info" EntityType="Self.Info" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+  </EntityContainer>
+</Schema>

@@ -24,5 +24,15 @@ namespace IkApp
         {
             InitializeComponent();
         }
+
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
