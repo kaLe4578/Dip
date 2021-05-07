@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище BibModelContainer" CdmEntityContainer="BibEntities">
+    <EntitySetMapping Name="InventarnoyKnigi">
+      <EntityTypeMapping TypeName="BibModel.InventarnoyKnigi">
+        <MappingFragment StoreEntitySet="InventarnoyKnigi">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Kod" ColumnName="Kod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Journal">
+      <EntityTypeMapping TypeName="BibModel.Journal">
+        <MappingFragment StoreEntitySet="Journal">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BookingStartData" ColumnName="BookingStartData" />
+          <ScalarProperty Name="BookingEndData" ColumnName="BookingEndData" />
+          <ScalarProperty Name="BookingStatus" ColumnName="BookingStatus" />
+          <ScalarProperty Name="IdBook" ColumnName="IdBook" />
+          <ScalarProperty Name="F" ColumnName="F" />
+          <ScalarProperty Name="I" ColumnName="I" />
+          <ScalarProperty Name="O" ColumnName="O" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kniga">
+      <EntityTypeMapping TypeName="BibModel.Kniga">
+        <MappingFragment StoreEntitySet="Kniga">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="KodInventarnoyKnigi" ColumnName="KodInventarnoyKnigi" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MestoIzdaniya" ColumnName="MestoIzdaniya" />
+          <ScalarProperty Name="GodIzdaniya" ColumnName="GodIzdaniya" />
+          <ScalarProperty Name="RazdelSistematicheskogoKataloga" ColumnName="RazdelSistematicheskogoKataloga" />
+          <ScalarProperty Name="Availability" ColumnName="Availability" />
+          <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+          <ScalarProperty Name="NoteToEmployees" ColumnName="NoteToEmployees" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="BibModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Status1" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="BibModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IsBlocked" ColumnName="IsBlocked" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

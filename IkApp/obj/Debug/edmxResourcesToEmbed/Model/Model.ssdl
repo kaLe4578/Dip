@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище BibModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="InventarnoyKnigi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Kod" Type="int" />
+  </EntityType>
+  <EntityType Name="Journal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookingStartData" Type="datetime" />
+    <Property Name="BookingEndData" Type="datetime" />
+    <Property Name="BookingStatus" Type="int" />
+    <Property Name="IdBook" Type="int" />
+    <Property Name="F" Type="nvarchar" MaxLength="50" />
+    <Property Name="I" Type="nvarchar" MaxLength="50" />
+    <Property Name="O" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Kniga">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KodInventarnoyKnigi" Type="int" />
+    <Property Name="Author" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="MestoIzdaniya" Type="nvarchar" MaxLength="50" />
+    <Property Name="GodIzdaniya" Type="date" />
+    <Property Name="RazdelSistematicheskogoKataloga" Type="nchar" MaxLength="10" />
+    <Property Name="Availability" Type="bit" />
+    <Property Name="Keyword" Type="nvarchar" MaxLength="50" />
+    <Property Name="NoteToEmployees" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsBlocked" Type="bit" />
+    <Property Name="Role" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Journal_Kniga">
+    <End Role="Kniga" Type="Self.Kniga" Multiplicity="0..1" />
+    <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kniga">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Journal">
+        <PropertyRef Name="IdBook" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Journal_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Journal">
+        <PropertyRef Name="BookingStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kniga_InventarnoyKnigi">
+    <End Role="InventarnoyKnigi" Type="Self.InventarnoyKnigi" Multiplicity="0..1" />
+    <End Role="Kniga" Type="Self.Kniga" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InventarnoyKnigi">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Kniga">
+        <PropertyRef Name="KodInventarnoyKnigi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище BibModelContainer">
+    <EntitySet Name="InventarnoyKnigi" EntityType="Self.InventarnoyKnigi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Journal" EntityType="Self.Journal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kniga" EntityType="Self.Kniga" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Journal_Kniga" Association="Self.FK_Journal_Kniga">
+      <End Role="Kniga" EntitySet="Kniga" />
+      <End Role="Journal" EntitySet="Journal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Journal_Status" Association="Self.FK_Journal_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Journal" EntitySet="Journal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kniga_InventarnoyKnigi" Association="Self.FK_Kniga_InventarnoyKnigi">
+      <End Role="InventarnoyKnigi" EntitySet="InventarnoyKnigi" />
+      <End Role="Kniga" EntitySet="Kniga" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

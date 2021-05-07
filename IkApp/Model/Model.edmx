@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище BibModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="InventarnoyKnigi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kod" Type="int" />
+        </EntityType>
+        <EntityType Name="Journal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BookingStartData" Type="datetime" />
+          <Property Name="BookingEndData" Type="datetime" />
+          <Property Name="BookingStatus" Type="int" />
+          <Property Name="IdBook" Type="int" />
+          <Property Name="F" Type="nvarchar" MaxLength="50" />
+          <Property Name="I" Type="nvarchar" MaxLength="50" />
+          <Property Name="O" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Kniga">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KodInventarnoyKnigi" Type="int" />
+          <Property Name="Author" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="MestoIzdaniya" Type="nvarchar" MaxLength="50" />
+          <Property Name="GodIzdaniya" Type="date" />
+          <Property Name="RazdelSistematicheskogoKataloga" Type="nchar" MaxLength="10" />
+          <Property Name="Availability" Type="bit" />
+          <Property Name="Keyword" Type="nvarchar" MaxLength="50" />
+          <Property Name="NoteToEmployees" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsBlocked" Type="bit" />
+          <Property Name="Role" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Journal_Kniga">
+          <End Role="Kniga" Type="Self.Kniga" Multiplicity="0..1" />
+          <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kniga">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Journal">
+              <PropertyRef Name="IdBook" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Journal_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Journal">
+              <PropertyRef Name="BookingStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kniga_InventarnoyKnigi">
+          <End Role="InventarnoyKnigi" Type="Self.InventarnoyKnigi" Multiplicity="0..1" />
+          <End Role="Kniga" Type="Self.Kniga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InventarnoyKnigi">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kniga">
+              <PropertyRef Name="KodInventarnoyKnigi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище BibModelContainer">
+          <EntitySet Name="InventarnoyKnigi" EntityType="Self.InventarnoyKnigi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Journal" EntityType="Self.Journal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kniga" EntityType="Self.Kniga" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Journal_Kniga" Association="Self.FK_Journal_Kniga">
+            <End Role="Kniga" EntitySet="Kniga" />
+            <End Role="Journal" EntitySet="Journal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Journal_Status" Association="Self.FK_Journal_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Journal" EntitySet="Journal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kniga_InventarnoyKnigi" Association="Self.FK_Kniga_InventarnoyKnigi">
+            <End Role="InventarnoyKnigi" EntitySet="InventarnoyKnigi" />
+            <End Role="Kniga" EntitySet="Kniga" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BibModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="InventarnoyKnigi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kod" Type="Int32" />
+          <NavigationProperty Name="Kniga" Relationship="Self.FK_Kniga_InventarnoyKnigi" FromRole="InventarnoyKnigi" ToRole="Kniga" />
+        </EntityType>
+        <EntityType Name="Journal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookingStartData" Type="DateTime" Precision="3" />
+          <Property Name="BookingEndData" Type="DateTime" Precision="3" />
+          <Property Name="BookingStatus" Type="Int32" />
+          <Property Name="IdBook" Type="Int32" />
+          <Property Name="F" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="I" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="O" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Kniga" Relationship="Self.FK_Journal_Kniga" FromRole="Journal" ToRole="Kniga" />
+          <NavigationProperty Name="Status" Relationship="Self.FK_Journal_Status" FromRole="Journal" ToRole="Status" />
+        </EntityType>
+        <EntityType Name="Kniga">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KodInventarnoyKnigi" Type="Int32" />
+          <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MestoIzdaniya" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GodIzdaniya" Type="DateTime" Precision="0" />
+          <Property Name="RazdelSistematicheskogoKataloga" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Availability" Type="Boolean" />
+          <Property Name="Keyword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NoteToEmployees" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="InventarnoyKnigi" Relationship="Self.FK_Kniga_InventarnoyKnigi" FromRole="Kniga" ToRole="InventarnoyKnigi" />
+          <NavigationProperty Name="Journal" Relationship="Self.FK_Journal_Kniga" FromRole="Kniga" ToRole="Journal" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Journal" Relationship="Self.FK_Journal_Status" FromRole="Status" ToRole="Journal" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsBlocked" Type="Boolean" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Kniga_InventarnoyKnigi">
+          <End Role="InventarnoyKnigi" Type="Self.InventarnoyKnigi" Multiplicity="0..1" />
+          <End Role="Kniga" Type="Self.Kniga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InventarnoyKnigi">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kniga">
+              <PropertyRef Name="KodInventarnoyKnigi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Journal_Kniga">
+          <End Role="Kniga" Type="Self.Kniga" Multiplicity="0..1" />
+          <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kniga">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Journal">
+              <PropertyRef Name="IdBook" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Journal_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Journal">
+              <PropertyRef Name="BookingStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BibEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="InventarnoyKnigi" EntityType="Self.InventarnoyKnigi" />
+          <EntitySet Name="Journal" EntityType="Self.Journal" />
+          <EntitySet Name="Kniga" EntityType="Self.Kniga" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <AssociationSet Name="FK_Kniga_InventarnoyKnigi" Association="Self.FK_Kniga_InventarnoyKnigi">
+            <End Role="InventarnoyKnigi" EntitySet="InventarnoyKnigi" />
+            <End Role="Kniga" EntitySet="Kniga" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Journal_Kniga" Association="Self.FK_Journal_Kniga">
+            <End Role="Kniga" EntitySet="Kniga" />
+            <End Role="Journal" EntitySet="Journal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Journal_Status" Association="Self.FK_Journal_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Journal" EntitySet="Journal" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище BibModelContainer" CdmEntityContainer="BibEntities">
+          <EntitySetMapping Name="InventarnoyKnigi">
+            <EntityTypeMapping TypeName="BibModel.InventarnoyKnigi">
+              <MappingFragment StoreEntitySet="InventarnoyKnigi">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Kod" ColumnName="Kod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Journal">
+            <EntityTypeMapping TypeName="BibModel.Journal">
+              <MappingFragment StoreEntitySet="Journal">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BookingStartData" ColumnName="BookingStartData" />
+                <ScalarProperty Name="BookingEndData" ColumnName="BookingEndData" />
+                <ScalarProperty Name="BookingStatus" ColumnName="BookingStatus" />
+                <ScalarProperty Name="IdBook" ColumnName="IdBook" />
+                <ScalarProperty Name="F" ColumnName="F" />
+                <ScalarProperty Name="I" ColumnName="I" />
+                <ScalarProperty Name="O" ColumnName="O" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kniga">
+            <EntityTypeMapping TypeName="BibModel.Kniga">
+              <MappingFragment StoreEntitySet="Kniga">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="KodInventarnoyKnigi" ColumnName="KodInventarnoyKnigi" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MestoIzdaniya" ColumnName="MestoIzdaniya" />
+                <ScalarProperty Name="GodIzdaniya" ColumnName="GodIzdaniya" />
+                <ScalarProperty Name="RazdelSistematicheskogoKataloga" ColumnName="RazdelSistematicheskogoKataloga" />
+                <ScalarProperty Name="Availability" ColumnName="Availability" />
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="NoteToEmployees" ColumnName="NoteToEmployees" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="BibModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Status1" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="BibModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsBlocked" ColumnName="IsBlocked" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
