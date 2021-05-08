@@ -60,3 +60,5 @@ C:\Users\Катя\Downloads\Dip\Dip\IkApp\obj\Debug\Windows\BookingWindow.baml
 C:\Users\Катя\Downloads\Dip\Dip\IkApp\obj\Debug\Windows\EditManagerWindow.baml
 C:\Users\Катя\Downloads\Dip\Dip\IkApp\obj\Debug\Windows\MainWindow.baml
 C:\Users\Катя\Downloads\Dip\Dip\IkApp\obj\Debug\Windows\MenagerWindow.baml
+C:\Users\Катя\Downloads\Dip\Dip\IkApp\obj\Debug\Windows\EditJournalWindow.g.cs
+C:\Users\Катя\Downloads\Dip\Dip\IkApp\obj\Debug\Windows\EditKnigaWindow.g.cs

@@ -16,6 +16,50 @@
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
+            <Setter Property="FontSize" Value="22"></Setter>
+            <Setter Property="BorderBrush" Value="White"/>
+
+
+        </Style>
+        <Style TargetType="DataGrid">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White" Offset="0"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="TabItem">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White" Offset="0"/>
+                        <GradientStop Color="#FFE4B5" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Grid">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFE4B5" Offset=""/>
+                        <GradientStop Color="#FFB4BEFF" Offset="1"/>
+                        <GradientStop Color="White" Offset="0"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="DataGridTextColumn">
+            <Setter Property="Foreground">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FFE4B5" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+            </Setter>
         </Style>
 
     </Application.Resources>

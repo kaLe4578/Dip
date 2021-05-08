@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Катя\Downloads\Dip\Dip\IkApp\App.xaml
-7555437675
+9-2013314945
 2482335943
-202072792108
+22-777788695
 191449629302
-Windows\AdminWindow.xaml;Windows\AuthorisationWindow.xaml;Windows\BookingWindow.xaml;Windows\EditManagerWindow.xaml;Windows\MainWindow.xaml;Windows\MenagerWindow.xaml;Windows\UserWindow.xaml;
+Windows\AdminWindow.xaml;Windows\AuthorisationWindow.xaml;Windows\BookingWindow.xaml;Windows\EditJournalWindow.xaml;Windows\EditKnigaWindow.xaml;Windows\EditManagerWindow.xaml;Windows\MainWindow.xaml;Windows\MenagerWindow.xaml;Windows\UserWindow.xaml;
 
-False
+True
 

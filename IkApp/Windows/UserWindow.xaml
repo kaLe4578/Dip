@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="UserWindow" Height="450" Width="800">
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792">
+        <TabControl HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="790">
             <TabItem Header="Книги" Margin="0,0,-2,-9" Height="29" VerticalAlignment="Top" FontSize="15">
                 <Grid Background="#FFE5E5E5" Margin="0,-27,0,0">
                     <Grid.RowDefinitions>
@@ -20,7 +20,7 @@
                             <DataGridTextColumn Header="Автор" Binding="{Binding Author}" Width="51"></DataGridTextColumn>
                             <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="75"></DataGridTextColumn>
                             <DataGridTextColumn Header="Место издания" Binding="{Binding MestoIzdaniya}" Width="113"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Год издания" Binding="{Binding GodIzdaniya}" Width="95"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Год издания" Binding="{Binding с}" Width="95"></DataGridTextColumn>
                             <DataGridTextColumn Header="Раздел систематического каталога" Binding="{Binding RazdelSistematicheskogoKataloga}" Width="*"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>

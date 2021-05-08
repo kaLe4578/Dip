@@ -104,6 +104,12 @@
     <Compile Include="Windows\BookingWindow.xaml.cs">
       <DependentUpon>BookingWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\EditJournalWindow.xaml.cs">
+      <DependentUpon>EditJournalWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditKnigaWindow.xaml.cs">
+      <DependentUpon>EditKnigaWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\EditManagerWindow.xaml.cs">
       <DependentUpon>EditManagerWindow.xaml</DependentUpon>
     </Compile>
@@ -122,6 +128,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\BookingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditJournalWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditKnigaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

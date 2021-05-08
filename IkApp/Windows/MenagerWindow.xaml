@@ -7,6 +7,58 @@
         mc:Ignorable="d"
         Title="MenagerWindow" Height="450" Width="800">
     <Grid>
-        
+
+        <TabControl HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="790">
+            <TabItem Header="Книга" FontSize="16">
+                <Grid Background="#FFE5E5E5" Margin="0,0,-9,-18">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <DataGrid x:Name="datagridkniga" Height="364" Margin="0,0,0,-363" VerticalAlignment="Top" HorizontalAlignment="Left" Width="629" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="№" Binding="{Binding KodInventarnoyKnigi}" ></DataGridTextColumn>
+                            <DataGridTextColumn Header="Автор" Binding="{Binding Author}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Название" Binding="{Binding Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Место издания" Binding="{Binding MestoIzdaniya}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Год издания" Binding="{Binding MestoIzdaniya}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Раздел с.к" Binding="{Binding RazdelSistematicheskogoKataloga}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Наличие" Binding="{Binding Availability}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Примичание" Binding="{Binding Keyword}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Примичание для сотрудника" Binding="{Binding NoteToEmployees}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="Add" Content="Добавить" HorizontalAlignment="Left" Margin="635,10,0,-53" VerticalAlignment="Top" Width="148" Height="43" Click="Add_Click"/>
+                    <Button x:Name="Edit" Content="Изменить" HorizontalAlignment="Left" Margin="635,70,0,-115" VerticalAlignment="Top" Width="148" Height="43" Click="Edit_Click"/>
+                    <Button x:Name="Refresh" Content="Обновить" HorizontalAlignment="Left" Margin="635,130,0,-178" VerticalAlignment="Top" Width="148" Height="43" Click="Refresh_Click"/>
+                    <Button x:Name="Exit" Content="Выход" HorizontalAlignment="Left" Margin="635,321,0,-363" VerticalAlignment="Top" Width="148" Height="43" Click="Exit_Click"/>
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="Бронирование" FontSize="16">
+                <Grid >
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <DataGrid x:Name="datagridbron" Height="375" Margin="0,1,0,-375" VerticalAlignment="Top" HorizontalAlignment="Left" Width="629" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Фамилия" Binding="{Binding F}"/>
+                            <DataGridTextColumn Header="Имя" Binding="{Binding I}"/>
+                            <DataGridTextColumn Header="Отчество" Binding="{Binding O}"/>
+                            <DataGridTextColumn Header="№ книги" Binding="{Binding IdBook}"/>
+                            <DataGridTextColumn Header="Дата бронирования" Binding="{Binding BookingStartData}"/>
+                            <DataGridTextColumn Header="Дата окончания брони" Binding="{Binding BookingEndData}"/>
+                            <DataGridTextColumn Header="Статус бронирования" Binding="{Binding BookingStatus}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="Edit2" Content="Изменить" HorizontalAlignment="Left" Margin="635,10,0,-53" VerticalAlignment="Top" Width="148" Height="43" Click="Edit2_Click"/>
+                    <Button x:Name="Refresh2" Content="Обновить" HorizontalAlignment="Left" Margin="635,70,0,-115" VerticalAlignment="Top" Width="148" Height="43" Click="Refresh2_Click"/>
+                    <Button x:Name="Exit2" Content="Выход" HorizontalAlignment="Left" Margin="635,321,0,-363" VerticalAlignment="Top" Width="148" Height="43" Click="Exit2_Click"/>
+                    
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+
     </Grid>
 </Window>

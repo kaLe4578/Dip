@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="AdminWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="datagrid" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="600">
+        <DataGrid x:Name="datagrid" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="600" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Логин" Binding="{Binding Login}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Логин" Binding="{Binding Login}" Width="*" ></DataGridTextColumn>
                 <DataGridTextColumn Header="Пароль" Binding="{Binding Password}" Width="*"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
