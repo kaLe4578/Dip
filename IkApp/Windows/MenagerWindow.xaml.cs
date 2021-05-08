@@ -48,7 +48,8 @@ namespace IkApp.Windows
 
         private void Refresh_Click(object sender, RoutedEventArgs e)
         {
-            
+            bibEntities.ChangeTracker.Entries().ToList().ForEach(pi => pi.Reload());
+            datagridkniga.ItemsSource = bibEntities.Kniga.ToList();
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -72,7 +73,8 @@ namespace IkApp.Windows
 
         private void Refresh2_Click(object sender, RoutedEventArgs e)
         {
-
+            bibEntities.ChangeTracker.Entries().ToList().ForEach(pi => pi.Reload());
+            datagridkniga.ItemsSource = bibEntities.Journal.ToList();
         }
 
         private void Exit2_Click(object sender, RoutedEventArgs e)
@@ -81,5 +83,7 @@ namespace IkApp.Windows
             mainWindow.Show();
             this.Close();
         }
+
+        
     }
 }
