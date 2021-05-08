@@ -16,16 +16,16 @@
         <Label Content="Наличие" HorizontalAlignment="Left" Margin="20,330,0,0" VerticalAlignment="Top" Height="40" Width="100" FontSize="20"/>
         <Label Content="Примичание/Ключевое слово" HorizontalAlignment="Left" Margin="20,380,0,0" VerticalAlignment="Top" Height="40" Width="300" FontSize="20"/>
         <Label Content="Примичание для сотрудников" HorizontalAlignment="Left" Margin="20,430,0,0" VerticalAlignment="Top" Height="40" Width="300" FontSize="20"/>
-        <ComboBox HorizontalAlignment="Left" Height="40" Margin="350,30,0,0" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Height="40" Margin="350,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Height="40" Margin="350,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Height="40" Margin="350,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Height="40" Margin="350,230,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Height="40" Margin="350,280,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
-        <ComboBox HorizontalAlignment="Left" Height="40" Margin="350,330,0,0" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Height="40" Margin="350,380,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Height="40" Margin="350,430,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
-        <Button x:Name="Add" Content="Добавить" HorizontalAlignment="Left" Height="60" Margin="484,499,0,0" VerticalAlignment="Top" Width="216" FontSize="20" />
+        <ComboBox x:Name="Kod" HorizontalAlignment="Left" Height="40" Margin="350,30,0,0" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
+        <TextBox x:Name="Author" HorizontalAlignment="Left" Height="40" Margin="350,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
+        <TextBox x:Name="Name" HorizontalAlignment="Left" Height="40" Margin="350,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
+        <TextBox x:Name="Mesto" HorizontalAlignment="Left" Height="40" Margin="350,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
+        <TextBox x:Name="God" HorizontalAlignment="Left" Height="40" Margin="350,230,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
+        <TextBox x:Name="Razdel" HorizontalAlignment="Left" Height="40" Margin="350,280,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
+        <ComboBox x:Name="Availability" HorizontalAlignment="Left" Height="40" Margin="350,330,0,0" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
+        <TextBox x:Name="Keyword" HorizontalAlignment="Left" Height="40" Margin="350,380,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
+        <TextBox x:Name="NoteToEmployees" HorizontalAlignment="Left" Height="40" Margin="350,430,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
+        <Button x:Name="Add" Content="Добавить" HorizontalAlignment="Left" Height="60" Margin="484,499,0,0" VerticalAlignment="Top" Width="216" FontSize="20" Click="Add_Click" />
 
     </Grid>
 </Window>
