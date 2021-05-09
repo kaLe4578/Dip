@@ -59,6 +59,21 @@ namespace IkApp.Windows
 
              } 
         }
+        public EditKnigaWindow(Kniga kniga)
+        {
+            InitializeComponent();
+            _kniga.Id = kniga.Id;
+            Author.Text = kniga.Author;
+            Name.Text = kniga.Name;
+            Mesto.Text = kniga.MestoIzdaniya;
+            Razdel.Text = kniga.RazdelSistematicheskogoKataloga;
+            Keyword.Text = kniga.Keyword;
+            NoteToEmployees.Text = kniga.NoteToEmployees;
+            Availability.IsChecked = kniga.Availability;
+
+
+
+        }
         private bool ModelCheck()
         {
             StringBuilder error = new StringBuilder();
