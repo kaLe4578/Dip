@@ -26,7 +26,7 @@ namespace IkApp.Windows
         public EditKnigaWindow()
         {
             InitializeComponent();
-            KodComboBox.ItemsSource = bibEntities.Status.Select(s => s.Status1).ToList();
+            KodComboBox.ItemsSource = bibEntities.InventarnoyKnigi.Select(s => s.Kod).ToList();
             KodComboBox.SelectedIndex = 0;
 
         }
@@ -46,8 +46,8 @@ namespace IkApp.Windows
                         _kniga.RazdelSistematicheskogoKataloga = Razdel.Text;
                         _kniga.Keyword = Keyword.Text;
                         _kniga.NoteToEmployees = NoteToEmployees.Text;
-                        KodComboBox.ItemsSource = bibEntities.InventarnoyKnigi.Select(s => s.Kod).ToList();
-                        KodComboBox.SelectedIndex = 0;
+                        _kniga.KodInventarnoyKnigi = KodComboBox.SelectedIndex + 1;
+                        _kniga.Availability = (bool)Availability.IsChecked;
 
                     }
 
