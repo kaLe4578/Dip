@@ -28,6 +28,7 @@ namespace IkApp.Windows
             InitializeComponent();
             KodComboBox.ItemsSource = bibEntities.InventarnoyKnigi.Select(s => s.Kod).ToList();
             KodComboBox.SelectedIndex = 0;
+            
 
         }
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -48,16 +49,32 @@ namespace IkApp.Windows
                         _kniga.NoteToEmployees = NoteToEmployees.Text;
                         _kniga.KodInventarnoyKnigi = KodComboBox.SelectedIndex + 1;
                         _kniga.Availability = (bool)Availability.IsChecked;
+                        bibEntities.Kniga.Add(_kniga);
+                        MessageBox.Show("книга добавлена");
 
                     }
-
+                    else
+                    {
+                        Kniga tempKniga = bibEntities.Kniga.FirstOrDefault(u => u.Id == _kniga.Id);
+                        tempKniga.Author = Author.Text;
+                        tempKniga.Name = Name.Text;
+                        tempKniga.MestoIzdaniya = Mesto.Text;
+                        tempKniga.RazdelSistematicheskogoKataloga = Razdel.Text;
+                        tempKniga.Keyword = Keyword.Text;
+                        tempKniga.NoteToEmployees = NoteToEmployees.Text;
+                        tempKniga.GodIzdaniya = (DateTime)God.SelectedDate;
+                        tempKniga.KodInventarnoyKnigi = KodComboBox.SelectedIndex + 1;
+                        tempKniga.Availability = (bool)Availability.IsChecked;
+                        MessageBox.Show("книга изменена");
+                    }
+                    bibEntities.SaveChanges();
                 }
-                catch
+                catch (Exception err)
                 {
-
+                    MessageBox.Show(err.ToString());
                 }
 
-             } 
+            } 
         }
         public EditKnigaWindow(Kniga kniga)
         {
@@ -70,7 +87,8 @@ namespace IkApp.Windows
             Keyword.Text = kniga.Keyword;
             NoteToEmployees.Text = kniga.NoteToEmployees;
             Availability.IsChecked = kniga.Availability;
-
+            KodComboBox.ItemsSource = bibEntities.InventarnoyKnigi.Select(s => s.Kod).ToList();
+            KodComboBox.SelectedIndex = (int)kniga.KodInventarnoyKnigi - 1;
 
 
         }
