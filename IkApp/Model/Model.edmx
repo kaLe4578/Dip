@@ -34,7 +34,7 @@
           <Property Name="Author" Type="nvarchar" MaxLength="50" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="MestoIzdaniya" Type="nvarchar" MaxLength="50" />
-          <Property Name="GodIzdaniya" Type="date" />
+          <Property Name="GodIzdaniya" Type="datetime" />
           <Property Name="RazdelSistematicheskogoKataloga" Type="nchar" MaxLength="10" />
           <Property Name="Availability" Type="bit" />
           <Property Name="Keyword" Type="nvarchar" MaxLength="50" />
@@ -149,7 +149,7 @@
           <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MestoIzdaniya" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GodIzdaniya" Type="DateTime" Precision="0" />
+          <Property Name="GodIzdaniya" Type="DateTime" Precision="3" />
           <Property Name="RazdelSistematicheskogoKataloga" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Availability" Type="Boolean" />
           <Property Name="Keyword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />

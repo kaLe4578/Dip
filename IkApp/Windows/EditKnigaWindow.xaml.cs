@@ -26,8 +26,10 @@ namespace IkApp.Windows
         public EditKnigaWindow()
         {
             InitializeComponent();
-        }
+            KodComboBox.ItemsSource = bibEntities.Status.Select(s => s.Status1).ToList();
+            KodComboBox.SelectedIndex = 0;
 
+        }
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             if (ModelCheck())
@@ -40,10 +42,12 @@ namespace IkApp.Windows
                         _kniga.Author = Author.Text;
                         _kniga.Name = Name.Text;
                         _kniga.MestoIzdaniya = Mesto.Text;
-                        _kniga.GodIzdaniya = God.Text;
+                        _kniga.GodIzdaniya = (DateTime)God.SelectedDate; ;
                         _kniga.RazdelSistematicheskogoKataloga = Razdel.Text;
                         _kniga.Keyword = Keyword.Text;
                         _kniga.NoteToEmployees = NoteToEmployees.Text;
+                        KodComboBox.ItemsSource = bibEntities.InventarnoyKnigi.Select(s => s.Kod).ToList();
+                        KodComboBox.SelectedIndex = 0;
 
                     }
 

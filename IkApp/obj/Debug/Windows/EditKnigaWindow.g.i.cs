@@ -43,7 +43,7 @@ namespace IkApp.Windows {
         
         #line 19 "..\..\..\Windows\EditKnigaWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.ComboBox Kod;
+        internal System.Windows.Controls.ComboBox KodComboBox;
         
         #line default
         #line hidden
@@ -75,7 +75,7 @@ namespace IkApp.Windows {
         
         #line 23 "..\..\..\Windows\EditKnigaWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBox God;
+        internal System.Windows.Controls.TextBox Razdel;
         
         #line default
         #line hidden
@@ -83,7 +83,7 @@ namespace IkApp.Windows {
         
         #line 24 "..\..\..\Windows\EditKnigaWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBox Razdel;
+        internal System.Windows.Controls.TextBox Keyword;
         
         #line default
         #line hidden
@@ -91,7 +91,7 @@ namespace IkApp.Windows {
         
         #line 25 "..\..\..\Windows\EditKnigaWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.ComboBox Availability;
+        internal System.Windows.Controls.TextBox NoteToEmployees;
         
         #line default
         #line hidden
@@ -99,7 +99,7 @@ namespace IkApp.Windows {
         
         #line 26 "..\..\..\Windows\EditKnigaWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBox Keyword;
+        internal System.Windows.Controls.Button Add;
         
         #line default
         #line hidden
@@ -107,7 +107,7 @@ namespace IkApp.Windows {
         
         #line 27 "..\..\..\Windows\EditKnigaWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBox NoteToEmployees;
+        internal System.Windows.Controls.DatePicker God;
         
         #line default
         #line hidden
@@ -115,7 +115,7 @@ namespace IkApp.Windows {
         
         #line 28 "..\..\..\Windows\EditKnigaWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button Add;
+        internal System.Windows.Controls.CheckBox Availability;
         
         #line default
         #line hidden
@@ -151,7 +151,7 @@ namespace IkApp.Windows {
             switch (connectionId)
             {
             case 1:
-            this.Kod = ((System.Windows.Controls.ComboBox)(target));
+            this.KodComboBox = ((System.Windows.Controls.ComboBox)(target));
             return;
             case 2:
             this.Author = ((System.Windows.Controls.TextBox)(target));
@@ -163,28 +163,28 @@ namespace IkApp.Windows {
             this.Mesto = ((System.Windows.Controls.TextBox)(target));
             return;
             case 5:
-            this.God = ((System.Windows.Controls.TextBox)(target));
-            return;
-            case 6:
             this.Razdel = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 7:
-            this.Availability = ((System.Windows.Controls.ComboBox)(target));
-            return;
-            case 8:
+            case 6:
             this.Keyword = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 9:
+            case 7:
             this.NoteToEmployees = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 10:
+            case 8:
             this.Add = ((System.Windows.Controls.Button)(target));
             
-            #line 28 "..\..\..\Windows\EditKnigaWindow.xaml"
+            #line 26 "..\..\..\Windows\EditKnigaWindow.xaml"
             this.Add.Click += new System.Windows.RoutedEventHandler(this.Add_Click);
             
             #line default
             #line hidden
+            return;
+            case 9:
+            this.God = ((System.Windows.Controls.DatePicker)(target));
+            return;
+            case 10:
+            this.Availability = ((System.Windows.Controls.CheckBox)(target));
             return;
             }
             this._contentLoaded = true;
