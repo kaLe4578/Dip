@@ -62,3 +62,6 @@ C:\Users\Катя\Downloads\Dip\Dip\IkApp\obj\Debug\Windows\MainWindow.baml
 C:\Users\Катя\Downloads\Dip\Dip\IkApp\obj\Debug\Windows\MenagerWindow.baml
 C:\Users\Катя\Downloads\Dip\Dip\IkApp\obj\Debug\Windows\EditJournalWindow.g.cs
 C:\Users\Катя\Downloads\Dip\Dip\IkApp\obj\Debug\Windows\EditKnigaWindow.g.cs
+C:\Users\Катя\Downloads\Dip\Dip\IkApp\obj\Debug\Windows\EditJournalWindow.baml
+C:\Users\Катя\Downloads\Dip\Dip\IkApp\obj\Debug\Windows\EditKnigaWindow.baml
+C:\Users\Катя\Downloads\Dip\Dip\IkApp\obj\Debug\IkApp.csproj.ResolveComReference.cache

@@ -74,7 +74,10 @@ namespace IkApp.Windows
                 error.AppendLine("Укажите логин");
             if (Password.Text == "")
                 error.AppendLine("Укажите пароль");
-            
+            var user = bibEntities.Users.FirstOrDefault(p => p.Login == Login.Text);
+            if (user != null)
+                error.AppendLine("Логин занят");
+
 
             if (error.Length > 0)
             {

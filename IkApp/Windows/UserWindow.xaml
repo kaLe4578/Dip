@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="UserWindow" Height="450" Width="800">
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="790">
+        <TabControl HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="790" >
             <TabItem Header="Книги" Margin="0,0,-2,-9" Height="29" VerticalAlignment="Top" FontSize="15">
                 <Grid Background="#FFE5E5E5" Margin="0,-27,0,0">
                     <Grid.RowDefinitions>
@@ -24,10 +24,11 @@
                             <DataGridTextColumn Header="Раздел систематического каталога" Binding="{Binding RazdelSistematicheskogoKataloga}" Width="*"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button Content="Бронировать" HorizontalAlignment="Left" Margin="620,275,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="156" Height="40" FontSize="22" Click="Button_ClickBooking"/>
-                    <Button Content="Выход" HorizontalAlignment="Left" Margin="620,342,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="156" Height="40" FontSize="22" Click="Button_ClickExit"/>
-                    <TextBox HorizontalAlignment="Left" Height="30" Margin="442,0,0,0" Grid.RowSpan="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="334"/>
+                    <Button Content="Бронировать" HorizontalAlignment="Left" Margin="620,300,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="156" Height="40" FontSize="22" Click="Button_ClickBooking"/>
+                    <Button Content="Выход" HorizontalAlignment="Left" Margin="618,359,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="156" Height="40" FontSize="22" Click="Button_ClickExit"/>
+                    <TextBox x:Name="SearchBox" HorizontalAlignment="Left" Height="30" Margin="442,0,0,0" Grid.RowSpan="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="334" TextChanged="Search"  />
                     <Label Content="Поиск" HorizontalAlignment="Left" Margin="354,-9,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="156" FontSize="22"/>
+                    <Button Content="Печать" x:Name="Print" HorizontalAlignment="Left" Margin="620,240,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="156"  Height="40" FontSize="22" Click="Print_Click" />
                 </Grid>
             </TabItem>
         </TabControl>

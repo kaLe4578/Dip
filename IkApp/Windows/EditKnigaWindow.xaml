@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IkApp.Windows"
         mc:Ignorable="d"
-        Title="EditKnigaWindow" Height="600" Width="750">
+        Title="EditKnigaWindow" Height="658" Width="750">
     <Grid>
         <Label Content="Код инвертарной книги" HorizontalAlignment="Left" Margin="20,30,0,0" VerticalAlignment="Top" Height="40" Width="232" FontSize="20"/>
         <Label Content="Автор" HorizontalAlignment="Left" Margin="20,80,0,0" VerticalAlignment="Top" Height="40" Width="100" FontSize="20"/>
@@ -16,16 +16,18 @@
         <Label Content="Наличие" HorizontalAlignment="Left" Margin="20,330,0,0" VerticalAlignment="Top" Height="40" Width="100" FontSize="20"/>
         <Label Content="Примичание/Ключевое слово" HorizontalAlignment="Left" Margin="20,380,0,0" VerticalAlignment="Top" Height="40" Width="300" FontSize="20"/>
         <Label Content="Примичание для сотрудников" HorizontalAlignment="Left" Margin="20,430,0,0" VerticalAlignment="Top" Height="40" Width="300" FontSize="20"/>
+        <Label Content="Статус" HorizontalAlignment="Left" Margin="20,480,0,0" VerticalAlignment="Top" Height="40" Width="300" FontSize="20"/>
         <ComboBox x:Name="KodComboBox" HorizontalAlignment="Left" Height="40" Margin="350,30,0,0" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
         <TextBox x:Name="Author" HorizontalAlignment="Left" Height="40" Margin="350,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
         <TextBox x:Name="Name" HorizontalAlignment="Left" Height="40" Margin="350,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
         <TextBox x:Name="Mesto" HorizontalAlignment="Left" Height="40" Margin="350,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
         <TextBox x:Name="Razdel" HorizontalAlignment="Left" Height="40" Margin="350,280,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
-        <TextBox x:Name="Keyword" HorizontalAlignment="Left" Height="40" Margin="350,380,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
+        <ComboBox x:Name="Keyword" HorizontalAlignment="Left" Height="40" Margin="350,380,0,0" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
+        <ComboBox x:Name="Status" HorizontalAlignment="Left" Height="40" Margin="350,480,0,0" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
         <TextBox x:Name="NoteToEmployees" HorizontalAlignment="Left" Height="40" Margin="350,430,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
-        <Button x:Name="Add" Content="Добавить" HorizontalAlignment="Left" Height="60" Margin="484,499,0,0" VerticalAlignment="Top" Width="216" FontSize="20" Click="Add_Click" />
-        <DatePicker x:Name="God" HorizontalAlignment="Left" Margin="350,230,0,0" VerticalAlignment="Top" Width="350" Height="40" FontSize="20" />
-        <CheckBox x:Name="Availability" Content="" HorizontalAlignment="Left" Margin="524,355,0,0" VerticalAlignment="Top" Height="20" Width="173" FontSize="20"  IsChecked="True" IsEnabled="True" Cursor="" ClickMode="Hover" RenderTransformOrigin="1,1"  >
+        <Button x:Name="Add" Content="Добавить" HorizontalAlignment="Left" Height="60" Margin="484,550,0,0" VerticalAlignment="Top" Width="216" FontSize="20" Click="Add_Click" />
+        <TextBox x:Name="God" HorizontalAlignment="Left" Margin="350,230,0,0" VerticalAlignment="Top" Width="350" Height="40" FontSize="20" />
+        <CheckBox x:Name="Availability" Content="" HorizontalAlignment="Left" Margin="523,354,0,0" VerticalAlignment="Top" Height="20" Width="173" FontSize="20"  IsChecked="True" IsEnabled="True" Cursor="" RenderTransformOrigin="1,1"  >
             <CheckBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="2" ScaleX="2"/>

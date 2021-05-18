@@ -12,6 +12,13 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Kod" Type="int" />
         </EntityType>
+        <EntityType Name="Izdanie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatusKniga" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Journal">
           <Key>
             <PropertyRef Name="Id" />
@@ -34,11 +41,12 @@
           <Property Name="Author" Type="nvarchar" MaxLength="50" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="MestoIzdaniya" Type="nvarchar" MaxLength="50" />
-          <Property Name="GodIzdaniya" Type="datetime" />
+          <Property Name="GodIzdaniya" Type="int" />
           <Property Name="RazdelSistematicheskogoKataloga" Type="nchar" MaxLength="10" />
           <Property Name="Availability" Type="bit" />
-          <Property Name="Keyword" Type="nvarchar" MaxLength="50" />
+          <Property Name="Keyword" Type="int" />
           <Property Name="NoteToEmployees" Type="nvarchar" MaxLength="100" />
+          <Property Name="Status" Type="int" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -46,6 +54,13 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Status" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Type">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -93,11 +108,37 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Kniga_Izdanie">
+          <End Role="Izdanie" Type="Self.Izdanie" Multiplicity="0..1" />
+          <End Role="Kniga" Type="Self.Kniga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Izdanie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kniga">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kniga_Type">
+          <End Role="Type" Type="Self.Type" Multiplicity="0..1" />
+          <End Role="Kniga" Type="Self.Kniga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kniga">
+              <PropertyRef Name="Keyword" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Хранилище BibModelContainer">
           <EntitySet Name="InventarnoyKnigi" EntityType="Self.InventarnoyKnigi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Izdanie" EntityType="Self.Izdanie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Journal" EntityType="Self.Journal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Kniga" EntityType="Self.Kniga" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Type" EntityType="Self.Type" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Journal_Kniga" Association="Self.FK_Journal_Kniga">
             <End Role="Kniga" EntitySet="Kniga" />
@@ -109,6 +150,14 @@
           </AssociationSet>
           <AssociationSet Name="FK_Kniga_InventarnoyKnigi" Association="Self.FK_Kniga_InventarnoyKnigi">
             <End Role="InventarnoyKnigi" EntitySet="InventarnoyKnigi" />
+            <End Role="Kniga" EntitySet="Kniga" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kniga_Izdanie" Association="Self.FK_Kniga_Izdanie">
+            <End Role="Izdanie" EntitySet="Izdanie" />
+            <End Role="Kniga" EntitySet="Kniga" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kniga_Type" Association="Self.FK_Kniga_Type">
+            <End Role="Type" EntitySet="Type" />
             <End Role="Kniga" EntitySet="Kniga" />
           </AssociationSet>
         </EntityContainer>
@@ -124,6 +173,14 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Kod" Type="Int32" />
           <NavigationProperty Name="Kniga" Relationship="Self.FK_Kniga_InventarnoyKnigi" FromRole="InventarnoyKnigi" ToRole="Kniga" />
+        </EntityType>
+        <EntityType Name="Izdanie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatusKniga" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Kniga" Relationship="Self.FK_Kniga_Izdanie" FromRole="Izdanie" ToRole="Kniga" />
         </EntityType>
         <EntityType Name="Journal">
           <Key>
@@ -149,13 +206,16 @@
           <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MestoIzdaniya" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GodIzdaniya" Type="DateTime" Precision="3" />
+          <Property Name="GodIzdaniya" Type="Int32" />
           <Property Name="RazdelSistematicheskogoKataloga" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Availability" Type="Boolean" />
-          <Property Name="Keyword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Keyword" Type="Int32" />
           <Property Name="NoteToEmployees" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
           <NavigationProperty Name="InventarnoyKnigi" Relationship="Self.FK_Kniga_InventarnoyKnigi" FromRole="Kniga" ToRole="InventarnoyKnigi" />
+          <NavigationProperty Name="Izdanie" Relationship="Self.FK_Kniga_Izdanie" FromRole="Kniga" ToRole="Izdanie" />
           <NavigationProperty Name="Journal" Relationship="Self.FK_Journal_Kniga" FromRole="Kniga" ToRole="Journal" />
+          <NavigationProperty Name="Type" Relationship="Self.FK_Kniga_Type" FromRole="Kniga" ToRole="Type" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -164,6 +224,14 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Status1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Journal" Relationship="Self.FK_Journal_Status" FromRole="Status" ToRole="Journal" />
+        </EntityType>
+        <EntityType Name="Type">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Kniga" Relationship="Self.FK_Kniga_Type" FromRole="Type" ToRole="Kniga" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -184,6 +252,18 @@
             </Principal>
             <Dependent Role="Kniga">
               <PropertyRef Name="KodInventarnoyKnigi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kniga_Izdanie">
+          <End Role="Izdanie" Type="Self.Izdanie" Multiplicity="0..1" />
+          <End Role="Kniga" Type="Self.Kniga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Izdanie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kniga">
+              <PropertyRef Name="Status" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -211,14 +291,32 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Kniga_Type">
+          <End Role="Type" Type="Self.Type" Multiplicity="0..1" />
+          <End Role="Kniga" Type="Self.Kniga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kniga">
+              <PropertyRef Name="Keyword" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="BibEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="InventarnoyKnigi" EntityType="Self.InventarnoyKnigi" />
+          <EntitySet Name="Izdanie" EntityType="Self.Izdanie" />
           <EntitySet Name="Journal" EntityType="Self.Journal" />
           <EntitySet Name="Kniga" EntityType="Self.Kniga" />
           <EntitySet Name="Status" EntityType="Self.Status" />
+          <EntitySet Name="Type" EntityType="Self.Type" />
           <EntitySet Name="Users" EntityType="Self.Users" />
           <AssociationSet Name="FK_Kniga_InventarnoyKnigi" Association="Self.FK_Kniga_InventarnoyKnigi">
             <End Role="InventarnoyKnigi" EntitySet="InventarnoyKnigi" />
+            <End Role="Kniga" EntitySet="Kniga" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kniga_Izdanie" Association="Self.FK_Kniga_Izdanie">
+            <End Role="Izdanie" EntitySet="Izdanie" />
             <End Role="Kniga" EntitySet="Kniga" />
           </AssociationSet>
           <AssociationSet Name="FK_Journal_Kniga" Association="Self.FK_Journal_Kniga">
@@ -228,6 +326,10 @@
           <AssociationSet Name="FK_Journal_Status" Association="Self.FK_Journal_Status">
             <End Role="Status" EntitySet="Status" />
             <End Role="Journal" EntitySet="Journal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kniga_Type" Association="Self.FK_Kniga_Type">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="Kniga" EntitySet="Kniga" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -241,6 +343,14 @@
               <MappingFragment StoreEntitySet="InventarnoyKnigi">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Kod" ColumnName="Kod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Izdanie">
+            <EntityTypeMapping TypeName="BibModel.Izdanie">
+              <MappingFragment StoreEntitySet="Izdanie">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StatusKniga" ColumnName="StatusKniga" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -271,6 +381,7 @@
                 <ScalarProperty Name="Availability" ColumnName="Availability" />
                 <ScalarProperty Name="Keyword" ColumnName="Keyword" />
                 <ScalarProperty Name="NoteToEmployees" ColumnName="NoteToEmployees" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -279,6 +390,14 @@
               <MappingFragment StoreEntitySet="Status">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Status1" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Type">
+            <EntityTypeMapping TypeName="BibModel.Type">
+              <MappingFragment StoreEntitySet="Type">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type1" ColumnName="Type" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

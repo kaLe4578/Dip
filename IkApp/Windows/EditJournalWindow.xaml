@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IkApp.Windows"
         mc:Ignorable="d"
-        Title="EditJournalWindow" Height="450" Width="800">
+         Title="EditJournalWindow" Height="500" Width="750">
     <Grid>
-        
+        <Label Content="Фамилия" HorizontalAlignment="Left" Margin="20,30,0,0" VerticalAlignment="Top" Height="40" Width="232" FontSize="20"/>
+        <TextBox x:Name="F"  HorizontalAlignment="Left" Height="40" Margin="350,30,0,0" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
+        <Label Content="Имя" HorizontalAlignment="Left" Margin="20,80,0,0" VerticalAlignment="Top" Height="40" Width="100" FontSize="20"/>
+        <TextBox x:Name="I" HorizontalAlignment="Left" Height="40" Margin="350,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
+        <Label Content="Отчество" HorizontalAlignment="Left" Margin="20,130,0,0" VerticalAlignment="Top" Height="40" Width="100" FontSize="20"/>
+        <TextBox x:Name="O" HorizontalAlignment="Left" Height="40" Margin="350,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
+        <Label  Content="Дата бронирования" HorizontalAlignment="Left" Margin="20,180,0,0" VerticalAlignment="Top" Height="40" Width="193" FontSize="20"/>
+        <DatePicker x:Name="BookingStartData" HorizontalAlignment="Left" Height="40" Margin="350,180,0,0" VerticalAlignment="Top" Width="350" FontSize="20"/>
+        <Label Content="Дата окончания бронирования" HorizontalAlignment="Left" Margin="20,230,0,0" VerticalAlignment="Top" Height="40" Width="297" FontSize="20"/>
+        <DatePicker x:Name="BookingEndData" HorizontalAlignment="Left" Height="40" Margin="350,230,0,0" VerticalAlignment="Top" Width="350" FontSize="20"/>
+        <Label Content="Статус бронирования" HorizontalAlignment="Left" Margin="20,280,0,0" VerticalAlignment="Top" Height="40" Width="208" FontSize="20"/>
+        <ComboBox x:Name="BookingStatus" HorizontalAlignment="Left" Height="40" Margin="350,280,0,0"  Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>
+        <Button x:Name="Edit" Content="Изменить" HorizontalAlignment="Left" Height="60" Margin="484,350,0,0" VerticalAlignment="Top" Width="216" FontSize="20" Click="Add_Click" />
     </Grid>
 </Window>

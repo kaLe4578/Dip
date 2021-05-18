@@ -26,6 +26,7 @@ namespace IkApp.Windows
         {
             InitializeComponent();
             datagridkniga.AutoGenerateColumns = false;
+            datagridbron.AutoGenerateColumns = false;
             datagridkniga.ItemsSource = bibEntities.Kniga.ToList();
             datagridbron.ItemsSource = bibEntities.Journal.ToList();
         }
@@ -74,7 +75,7 @@ namespace IkApp.Windows
         private void Refresh2_Click(object sender, RoutedEventArgs e)
         {
             bibEntities.ChangeTracker.Entries().ToList().ForEach(pi => pi.Reload());
-            datagridkniga.ItemsSource = bibEntities.Journal.ToList();
+            datagridbron.ItemsSource = bibEntities.Journal.ToList();
         }
 
         private void Exit2_Click(object sender, RoutedEventArgs e)

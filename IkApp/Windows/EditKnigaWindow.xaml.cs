@@ -28,7 +28,10 @@ namespace IkApp.Windows
             InitializeComponent();
             KodComboBox.ItemsSource = bibEntities.InventarnoyKnigi.Select(s => s.Kod).ToList();
             KodComboBox.SelectedIndex = 0;
-            
+            Status.ItemsSource = bibEntities.Izdanie.Select(s => s.StatusKniga).ToList();
+            Status.SelectedIndex = 0;
+            Keyword.ItemsSource = bibEntities.Type.Select(s => s.Type1).ToList();
+            Keyword.SelectedIndex = 0;
 
         }
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -43,12 +46,13 @@ namespace IkApp.Windows
                         _kniga.Author = Author.Text;
                         _kniga.Name = Name.Text;
                         _kniga.MestoIzdaniya = Mesto.Text;
-                        _kniga.GodIzdaniya = (DateTime)God.SelectedDate; ;
+                        _kniga.GodIzdaniya = int.Parse(God.Text);
                         _kniga.RazdelSistematicheskogoKataloga = Razdel.Text;
-                        _kniga.Keyword = Keyword.Text;
+                        _kniga.Keyword = Keyword.SelectedIndex + 1;
                         _kniga.NoteToEmployees = NoteToEmployees.Text;
                         _kniga.KodInventarnoyKnigi = KodComboBox.SelectedIndex + 1;
                         _kniga.Availability = (bool)Availability.IsChecked;
+                        _kniga.Status = Status.SelectedIndex + 1;
                         bibEntities.Kniga.Add(_kniga);
                         MessageBox.Show("книга добавлена");
 
@@ -60,9 +64,10 @@ namespace IkApp.Windows
                         tempKniga.Name = Name.Text;
                         tempKniga.MestoIzdaniya = Mesto.Text;
                         tempKniga.RazdelSistematicheskogoKataloga = Razdel.Text;
-                        tempKniga.Keyword = Keyword.Text;
+                        tempKniga.Keyword = Keyword.SelectedIndex + 1;
+                        tempKniga.Status = Status.SelectedIndex + 1;
                         tempKniga.NoteToEmployees = NoteToEmployees.Text;
-                        tempKniga.GodIzdaniya = (DateTime)God.SelectedDate;
+                        tempKniga.GodIzdaniya = int.Parse(God.Text);
                         tempKniga.KodInventarnoyKnigi = KodComboBox.SelectedIndex + 1;
                         tempKniga.Availability = (bool)Availability.IsChecked;
                         MessageBox.Show("книга изменена");
@@ -84,11 +89,16 @@ namespace IkApp.Windows
             Name.Text = kniga.Name;
             Mesto.Text = kniga.MestoIzdaniya;
             Razdel.Text = kniga.RazdelSistematicheskogoKataloga;
-            Keyword.Text = kniga.Keyword;
             NoteToEmployees.Text = kniga.NoteToEmployees;
             Availability.IsChecked = kniga.Availability;
             KodComboBox.ItemsSource = bibEntities.InventarnoyKnigi.Select(s => s.Kod).ToList();
             KodComboBox.SelectedIndex = (int)kniga.KodInventarnoyKnigi - 1;
+            Keyword.ItemsSource = bibEntities.Type.Select(s => s.Type1).ToList();
+            Keyword.SelectedIndex = (int)kniga.Keyword - 1;
+            Status.ItemsSource = bibEntities.Izdanie.Select(s => s.StatusKniga).ToList();
+            Status.SelectedIndex = (int)kniga.Status - 1;
+
+
 
 
         }
@@ -99,6 +109,8 @@ namespace IkApp.Windows
                 error.AppendLine("Укажите название");
             if (Razdel.Text == "")
                 error.AppendLine("Укажите раздел систематического каталога");
+            if (God.Text == "")
+                error.AppendLine("Укажите год");
 
 
             if (error.Length > 0)

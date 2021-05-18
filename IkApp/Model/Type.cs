@@ -12,30 +12,18 @@ namespace IkApp.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Kniga
+    public partial class Type
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Kniga()
+        public Type()
         {
-            this.Journal = new HashSet<Journal>();
+            this.Kniga = new HashSet<Kniga>();
         }
     
         public int Id { get; set; }
-        public Nullable<int> KodInventarnoyKnigi { get; set; }
-        public string Author { get; set; }
-        public string Name { get; set; }
-        public string MestoIzdaniya { get; set; }
-        public Nullable<int> GodIzdaniya { get; set; }
-        public string RazdelSistematicheskogoKataloga { get; set; }
-        public Nullable<bool> Availability { get; set; }
-        public Nullable<int> Keyword { get; set; }
-        public string NoteToEmployees { get; set; }
-        public Nullable<int> Status { get; set; }
+        public string Type1 { get; set; }
     
-        public virtual InventarnoyKnigi InventarnoyKnigi { get; set; }
-        public virtual Izdanie Izdanie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Journal> Journal { get; set; }
-        public virtual Type Type { get; set; }
+        public virtual ICollection<Kniga> Kniga { get; set; }
     }
 }

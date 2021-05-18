@@ -13,7 +13,7 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Grid Background="#FFE4B5" Panel.ZIndex="-2"></Grid>
-        <Image Source="Resources/gerb.png" HorizontalAlignment="Left" Width="101"/>
+        
         <TextBlock Text="Инвентарная книга книг, газет и журналов" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Wide Latin" FontSize="22" Margin="101,26,230,21" Width="461"></TextBlock>
 
         <Grid Grid.Row="2" Background="#FF4500"></Grid>
