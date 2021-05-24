@@ -8,14 +8,6 @@
     <Property Name="Kod" Type="Int32" />
     <NavigationProperty Name="Kniga" Relationship="Self.FK_Kniga_InventarnoyKnigi" FromRole="InventarnoyKnigi" ToRole="Kniga" />
   </EntityType>
-  <EntityType Name="Izdanie">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="StatusKniga" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Kniga" Relationship="Self.FK_Kniga_Izdanie" FromRole="Izdanie" ToRole="Kniga" />
-  </EntityType>
   <EntityType Name="Journal">
     <Key>
       <PropertyRef Name="Id" />
@@ -47,9 +39,17 @@
     <Property Name="NoteToEmployees" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Status" Type="Int32" />
     <NavigationProperty Name="InventarnoyKnigi" Relationship="Self.FK_Kniga_InventarnoyKnigi" FromRole="Kniga" ToRole="InventarnoyKnigi" />
-    <NavigationProperty Name="Izdanie" Relationship="Self.FK_Kniga_Izdanie" FromRole="Kniga" ToRole="Izdanie" />
     <NavigationProperty Name="Journal" Relationship="Self.FK_Journal_Kniga" FromRole="Kniga" ToRole="Journal" />
+    <NavigationProperty Name="Publication" Relationship="Self.FK_Kniga_Publication" FromRole="Kniga" ToRole="Publication" />
     <NavigationProperty Name="Type" Relationship="Self.FK_Kniga_Type" FromRole="Kniga" ToRole="Type" />
+  </EntityType>
+  <EntityType Name="Publication">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StatusKniga" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Kniga" Relationship="Self.FK_Kniga_Publication" FromRole="Publication" ToRole="Kniga" />
   </EntityType>
   <EntityType Name="Status">
     <Key>
@@ -89,18 +89,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Kniga_Izdanie">
-    <End Role="Izdanie" Type="Self.Izdanie" Multiplicity="0..1" />
-    <End Role="Kniga" Type="Self.Kniga" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Izdanie">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Kniga">
-        <PropertyRef Name="Status" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Journal_Kniga">
     <End Role="Kniga" Type="Self.Kniga" Multiplicity="0..1" />
     <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
@@ -125,6 +113,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Kniga_Publication">
+    <End Role="Publication" Type="Self.Publication" Multiplicity="0..1" />
+    <End Role="Kniga" Type="Self.Kniga" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Publication">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Kniga">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Kniga_Type">
     <End Role="Type" Type="Self.Type" Multiplicity="0..1" />
     <End Role="Kniga" Type="Self.Kniga" Multiplicity="*" />
@@ -139,18 +139,14 @@
   </Association>
   <EntityContainer Name="BibEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="InventarnoyKnigi" EntityType="Self.InventarnoyKnigi" />
-    <EntitySet Name="Izdanie" EntityType="Self.Izdanie" />
     <EntitySet Name="Journal" EntityType="Self.Journal" />
     <EntitySet Name="Kniga" EntityType="Self.Kniga" />
+    <EntitySet Name="Publication" EntityType="Self.Publication" />
     <EntitySet Name="Status" EntityType="Self.Status" />
     <EntitySet Name="Type" EntityType="Self.Type" />
     <EntitySet Name="Users" EntityType="Self.Users" />
     <AssociationSet Name="FK_Kniga_InventarnoyKnigi" Association="Self.FK_Kniga_InventarnoyKnigi">
       <End Role="InventarnoyKnigi" EntitySet="InventarnoyKnigi" />
-      <End Role="Kniga" EntitySet="Kniga" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Kniga_Izdanie" Association="Self.FK_Kniga_Izdanie">
-      <End Role="Izdanie" EntitySet="Izdanie" />
       <End Role="Kniga" EntitySet="Kniga" />
     </AssociationSet>
     <AssociationSet Name="FK_Journal_Kniga" Association="Self.FK_Journal_Kniga">
@@ -160,6 +156,10 @@
     <AssociationSet Name="FK_Journal_Status" Association="Self.FK_Journal_Status">
       <End Role="Status" EntitySet="Status" />
       <End Role="Journal" EntitySet="Journal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kniga_Publication" Association="Self.FK_Kniga_Publication">
+      <End Role="Publication" EntitySet="Publication" />
+      <End Role="Kniga" EntitySet="Kniga" />
     </AssociationSet>
     <AssociationSet Name="FK_Kniga_Type" Association="Self.FK_Kniga_Type">
       <End Role="Type" EntitySet="Type" />

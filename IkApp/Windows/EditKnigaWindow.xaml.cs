@@ -28,12 +28,12 @@ namespace IkApp.Windows
             InitializeComponent();
             KodComboBox.ItemsSource = bibEntities.InventarnoyKnigi.Select(s => s.Kod).ToList();
             KodComboBox.SelectedIndex = 0;
-            Status.ItemsSource = bibEntities.Izdanie.Select(s => s.StatusKniga).ToList();
+            Status.ItemsSource = bibEntities.Publication.Select(s => s.StatusKniga).ToList();
             Status.SelectedIndex = 0;
             Keyword.ItemsSource = bibEntities.Type.Select(s => s.Type1).ToList();
             Keyword.SelectedIndex = 0;
 
-        }
+        } 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             if (ModelCheck())
@@ -88,6 +88,7 @@ namespace IkApp.Windows
             Author.Text = kniga.Author;
             Name.Text = kniga.Name;
             Mesto.Text = kniga.MestoIzdaniya;
+            God.Text = kniga.GodIzdaniya.ToString();
             Razdel.Text = kniga.RazdelSistematicheskogoKataloga;
             NoteToEmployees.Text = kniga.NoteToEmployees;
             Availability.IsChecked = kniga.Availability;
@@ -95,7 +96,7 @@ namespace IkApp.Windows
             KodComboBox.SelectedIndex = (int)kniga.KodInventarnoyKnigi - 1;
             Keyword.ItemsSource = bibEntities.Type.Select(s => s.Type1).ToList();
             Keyword.SelectedIndex = (int)kniga.Keyword - 1;
-            Status.ItemsSource = bibEntities.Izdanie.Select(s => s.StatusKniga).ToList();
+            Status.ItemsSource = bibEntities.Publication.Select(s => s.StatusKniga).ToList();
             Status.SelectedIndex = (int)kniga.Status - 1;
 
 

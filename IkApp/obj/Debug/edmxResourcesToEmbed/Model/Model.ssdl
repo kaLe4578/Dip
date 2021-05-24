@@ -7,13 +7,6 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Kod" Type="int" />
   </EntityType>
-  <EntityType Name="Izdanie">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="StatusKniga" Type="nvarchar" MaxLength="50" />
-  </EntityType>
   <EntityType Name="Journal">
     <Key>
       <PropertyRef Name="Id" />
@@ -42,6 +35,13 @@
     <Property Name="Keyword" Type="int" />
     <Property Name="NoteToEmployees" Type="nvarchar" MaxLength="100" />
     <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="Publication">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StatusKniga" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Status">
     <Key>
@@ -103,11 +103,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Kniga_Izdanie">
-    <End Role="Izdanie" Type="Self.Izdanie" Multiplicity="0..1" />
+  <Association Name="FK_Kniga_Publication">
+    <End Role="Publication" Type="Self.Publication" Multiplicity="0..1" />
     <End Role="Kniga" Type="Self.Kniga" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Izdanie">
+      <Principal Role="Publication">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Kniga">
@@ -129,9 +129,9 @@
   </Association>
   <EntityContainer Name="Хранилище BibModelContainer">
     <EntitySet Name="InventarnoyKnigi" EntityType="Self.InventarnoyKnigi" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Izdanie" EntityType="Self.Izdanie" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Journal" EntityType="Self.Journal" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Kniga" EntityType="Self.Kniga" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Publication" EntityType="Self.Publication" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Type" EntityType="Self.Type" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
@@ -147,8 +147,8 @@
       <End Role="InventarnoyKnigi" EntitySet="InventarnoyKnigi" />
       <End Role="Kniga" EntitySet="Kniga" />
     </AssociationSet>
-    <AssociationSet Name="FK_Kniga_Izdanie" Association="Self.FK_Kniga_Izdanie">
-      <End Role="Izdanie" EntitySet="Izdanie" />
+    <AssociationSet Name="FK_Kniga_Publication" Association="Self.FK_Kniga_Publication">
+      <End Role="Publication" EntitySet="Publication" />
       <End Role="Kniga" EntitySet="Kniga" />
     </AssociationSet>
     <AssociationSet Name="FK_Kniga_Type" Association="Self.FK_Kniga_Type">

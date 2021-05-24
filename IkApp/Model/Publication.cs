@@ -12,10 +12,10 @@ namespace IkApp.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Izdanie
+    public partial class Publication
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Izdanie()
+        public Publication()
         {
             this.Kniga = new HashSet<Kniga>();
         }

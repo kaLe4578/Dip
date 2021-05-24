@@ -9,14 +9,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Izdanie">
-      <EntityTypeMapping TypeName="BibModel.Izdanie">
-        <MappingFragment StoreEntitySet="Izdanie">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="StatusKniga" ColumnName="StatusKniga" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Journal">
       <EntityTypeMapping TypeName="BibModel.Journal">
         <MappingFragment StoreEntitySet="Journal">
@@ -45,6 +37,14 @@
           <ScalarProperty Name="Keyword" ColumnName="Keyword" />
           <ScalarProperty Name="NoteToEmployees" ColumnName="NoteToEmployees" />
           <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Publication">
+      <EntityTypeMapping TypeName="BibModel.Publication">
+        <MappingFragment StoreEntitySet="Publication">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StatusKniga" ColumnName="StatusKniga" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -21,7 +21,7 @@
                             <DataGridTextColumn Header="Автор" Binding="{Binding Author}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Название" Binding="{Binding Name}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Место издания" Binding="{Binding MestoIzdaniya}"/>
-                            <DataGridTextColumn Header="Год издания" Binding="{Binding MestoIzdaniya}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Год издания" Binding="{Binding GodIzdaniya}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Раздел с.к" Binding="{Binding RazdelSistematicheskogoKataloga}"/>
                             <DataGridTextColumn Header="Наличие" Binding="{Binding Availability}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Примичание" Binding="{Binding Keyword}"></DataGridTextColumn>

@@ -33,9 +33,9 @@ namespace IkApp.Model
         public Nullable<int> Status { get; set; }
     
         public virtual InventarnoyKnigi InventarnoyKnigi { get; set; }
-        public virtual Izdanie Izdanie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Journal> Journal { get; set; }
+        public virtual Publication Publication { get; set; }
         public virtual Type Type { get; set; }
     }
 }

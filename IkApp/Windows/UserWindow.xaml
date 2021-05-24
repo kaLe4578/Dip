@@ -20,7 +20,7 @@
                             <DataGridTextColumn Header="Автор" Binding="{Binding Author}" Width="51"></DataGridTextColumn>
                             <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="75"></DataGridTextColumn>
                             <DataGridTextColumn Header="Место издания" Binding="{Binding MestoIzdaniya}" Width="113"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Год издания" Binding="{Binding с}" Width="95"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Год издания" Binding="{Binding GodIzdaniya}" Width="95"></DataGridTextColumn>
                             <DataGridTextColumn Header="Раздел систематического каталога" Binding="{Binding RazdelSistematicheskogoKataloga}" Width="*"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>

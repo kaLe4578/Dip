@@ -4,18 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f01bc954b0be4bc6aecf4a04392b4b33" Name="Diagram1">
+      <Diagram DiagramId="a75aa86dcfb64646b095edf643bfba82" Name="Diagram1">
         <EntityTypeShape EntityType="BibModel.InventarnoyKnigi" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BibModel.Izdanie" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="BibModel.Journal" Width="1.5" PointX="5.25" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BibModel.Kniga" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BibModel.Publication" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="BibModel.Status" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BibModel.Type" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BibModel.Users" Width="1.5" PointX="5.75" PointY="7.125" IsExpanded="true" />
         <AssociationConnector Association="BibModel.FK_Kniga_InventarnoyKnigi" ManuallyRouted="false" />
-        <AssociationConnector Association="BibModel.FK_Kniga_Izdanie" ManuallyRouted="false" />
         <AssociationConnector Association="BibModel.FK_Journal_Kniga" ManuallyRouted="false" />
         <AssociationConnector Association="BibModel.FK_Journal_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="BibModel.FK_Kniga_Publication" ManuallyRouted="false" />
         <AssociationConnector Association="BibModel.FK_Kniga_Type" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

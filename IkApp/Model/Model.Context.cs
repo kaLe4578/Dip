@@ -26,9 +26,9 @@ namespace IkApp.Model
         }
     
         public virtual DbSet<InventarnoyKnigi> InventarnoyKnigi { get; set; }
-        public virtual DbSet<Izdanie> Izdanie { get; set; }
         public virtual DbSet<Journal> Journal { get; set; }
         public virtual DbSet<Kniga> Kniga { get; set; }
+        public virtual DbSet<Publication> Publication { get; set; }
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<Type> Type { get; set; }
         public virtual DbSet<Users> Users { get; set; }
