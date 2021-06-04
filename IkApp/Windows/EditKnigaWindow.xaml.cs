@@ -71,6 +71,7 @@ namespace IkApp.Windows
                         tempKniga.KodInventarnoyKnigi = KodComboBox.SelectedIndex + 1;
                         tempKniga.Availability = (bool)Availability.IsChecked;
                         MessageBox.Show("книга изменена");
+                        
                     }
                     bibEntities.SaveChanges();
                 }

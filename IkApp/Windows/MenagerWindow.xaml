@@ -12,21 +12,21 @@
             <TabItem Header="Книга" FontSize="16">
                 <Grid Margin="0,0,-4,-4">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="0*"></RowDefinition>
+                        <RowDefinition Height="0*"/>
                     </Grid.RowDefinitions>
                     <DataGrid x:Name="datagridkniga" Height="379" Margin="0,1,0,-379" VerticalAlignment="Top" HorizontalAlignment="Left" Width="629"  RenderTransformOrigin="0.499,0.484" >
 
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="№" Binding="{Binding KodInventarnoyKnigi}" ></DataGridTextColumn>
-                            <DataGridTextColumn Header="Автор" Binding="{Binding Author}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Название" Binding="{Binding Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="№" Binding="{Binding KodInventarnoyKnigi}" />
+                            <DataGridTextColumn Header="Автор" Binding="{Binding Author}"/>
+                            <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
                             <DataGridTextColumn Header="Место издания" Binding="{Binding MestoIzdaniya}"/>
-                            <DataGridTextColumn Header="Год издания" Binding="{Binding GodIzdaniya}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Год издания" Binding="{Binding GodIzdaniya}"/>
                             <DataGridTextColumn Header="Раздел с.к" Binding="{Binding RazdelSistematicheskogoKataloga}"/>
-                            <DataGridTextColumn Header="Наличие" Binding="{Binding Availability}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Примичание" Binding="{Binding Keyword}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Примичание для сотрудника" Binding="{Binding NoteToEmployees}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Статус" Binding="{Binding Status}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Наличие" Binding="{Binding Availability}"/>
+                            <DataGridTextColumn Header="Примичание" Binding="{Binding Keyword}"/>
+                            <DataGridTextColumn Header="Примичание для сотрудника" Binding="{Binding NoteToEmployees}"/>
+                            <DataGridTextColumn Header="Статус" Binding="{Binding Status}"/>
 
                         </DataGrid.Columns>
                     </DataGrid>
@@ -42,7 +42,7 @@
                 <Grid >
 
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="0*"></RowDefinition>
+                        <RowDefinition Height="0*"/>
                     </Grid.RowDefinitions>
                     <DataGrid x:Name="datagridbron" Height="375" Margin="0,1,0,-375" VerticalAlignment="Top" HorizontalAlignment="Left" Width="629" >
                         <DataGrid.Columns>
