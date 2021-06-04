@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IkApp.Windows"
         mc:Ignorable="d"
-        Title="EditManagerWindow" Height="300" Width="400">
+        Title="Инвертарная книга" Icon="/IkApp;component/Resources/gerb.png"  Height="300" Width="400">
     <Grid>
         <TextBox x:Name="Login" HorizontalAlignment="Left" Height="33" Margin="129,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" FontSize="20"/>
         <TextBox x:Name="Password"  HorizontalAlignment="Left" Height="33" Margin="129,120,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" FontSize="20"/>

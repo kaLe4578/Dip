@@ -3,7 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:IkApp"
              StartupUri="Windows/MainWindow.xaml">
+    
     <Application.Resources>
+        <Style TargetType="Window" >
+            <Setter Property="Title" Value="Инвертарная книга"/>
+            <Setter Property="Icon" Value="/IkApp;component/Resources/gerb.png"/>
+           
+        </Style>
+            
         <Style TargetType="Button">
             <Setter Property="Margin" Value="5"></Setter>
             <Setter Property="Width" Value="175"></Setter>

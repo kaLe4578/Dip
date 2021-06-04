@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IkApp.Windows"
         mc:Ignorable="d"
-        Title="MenagerWindow" Height="450" Width="800">
+        Title="Инвертарная книга" Icon="/IkApp;component/Resources/gerb.png"  Height="450" Width="800">
     <Grid>
 
         <TabControl HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="790">
@@ -34,6 +34,7 @@
                     <Button x:Name="Edit" Content="Изменить" HorizontalAlignment="Left" Margin="635,70,0,-115" VerticalAlignment="Top" Width="148" Height="43" Click="Edit_Click"/>
                     <Button x:Name="Refresh" Content="Обновить" HorizontalAlignment="Left" Margin="635,130,0,-178" VerticalAlignment="Top" Width="148" Height="43" Click="Refresh_Click"/>
                     <Button x:Name="Exit" Content="Выход" HorizontalAlignment="Left" Margin="635,321,0,-363" VerticalAlignment="Top" Width="148" Height="43" Click="Exit_Click"/>
+                    <Button x:Name="Delete" Content="Удалить" HorizontalAlignment="Left" Margin="635,190,0,-237" VerticalAlignment="Top" Width="148" Height="44" Click="Delete_Click"/>
                 </Grid>
 
             </TabItem>
@@ -56,6 +57,7 @@
                     </DataGrid>
                     <Button x:Name="Edit2" Content="Изменить" HorizontalAlignment="Left" Margin="635,10,0,-53" VerticalAlignment="Top" Width="148" Height="43" Click="Edit2_Click"/>
                     <Button x:Name="Refresh2" Content="Обновить" HorizontalAlignment="Left" Margin="635,70,0,-115" VerticalAlignment="Top" Width="148" Height="43" Click="Refresh2_Click"/>
+                    <Button x:Name="Delete2" Content="Удалить" HorizontalAlignment="Left" Margin="635,130,0,-187" VerticalAlignment="Top" Width="148" Height="43" Click="Delete2_Click"/>
                     <Button x:Name="Exit2" Content="Выход" HorizontalAlignment="Left" Margin="635,321,0,-363" VerticalAlignment="Top" Width="148" Height="43" Click="Exit2_Click"/>
 
                 </Grid>

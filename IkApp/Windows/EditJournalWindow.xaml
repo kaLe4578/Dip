@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IkApp.Windows"
         mc:Ignorable="d"
-         Title="EditJournalWindow" Height="500" Width="750">
+        Title="Инвертарная книга" Icon="/IkApp;component/Resources/gerb.png"  Height="500" Width="750">
     <Grid>
         <Label Content="Фамилия" HorizontalAlignment="Left" Margin="20,30,0,0" VerticalAlignment="Top" Height="40" Width="232" FontSize="20"/>
         <TextBox x:Name="F"  HorizontalAlignment="Left" Height="40" Margin="350,30,0,0" Text="" VerticalAlignment="Top" Width="350" FontSize="20"/>

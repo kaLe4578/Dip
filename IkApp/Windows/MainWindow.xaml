@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IkApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Инвертарная книга" Icon="/IkApp;component/Resources/gerb.png" Height="450" Width="800"  >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
@@ -13,14 +13,15 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Grid Background="#FFE4B5" Panel.ZIndex="-2"></Grid>
-        
-        <TextBlock Text="Инвентарная книга книг, газет и журналов" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Wide Latin" FontSize="22" Margin="101,26,230,21" Width="461"></TextBlock>
 
-        <Grid Grid.Row="2" Background="#FF4500"></Grid>
+        <TextBlock Text="Инвентарная книга книг, газет и журналов" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Wide Latin" FontSize="22" Margin="113,26,205,21" Width="450"></TextBlock>
+
+        <Grid Grid.Row="2" Background="Moccasin"></Grid>
         <Frame NavigationUIVisibility="Hidden"  ContentRendered="MainFrame_ContentRendered" Grid.Row="1" Name="MainFrame" Content=""></Frame>
         <Button Content="Назад" Name="BtnBack" HorizontalAlignment="Right" Click="BtnBack_Click" Foreground="Black"></Button>
         <Button Content="Пользователь" HorizontalAlignment="Left" Margin="200,65,0,0" Grid.Row="1" VerticalAlignment="Top" Width="398" Height="60" FontSize="22" Click="Button_ClickUser" />
         <Button Content="Сотрудник" HorizontalAlignment="Left" Margin="200,175,0,0" Grid.Row="1" VerticalAlignment="Top" Width="397" Height="60" FontSize="22" Click="Button_ClickSoutrudnik" />
+        <Image Source="/IkApp;component/Resources/gerb.png" HorizontalAlignment="Left" Margin="21,0,0,0"/>
 
     </Grid>
 </Window>

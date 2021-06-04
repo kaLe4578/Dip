@@ -85,6 +85,44 @@ namespace IkApp.Windows
             this.Close();
         }
 
-        
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            if (datagridkniga.SelectedItems.Count > 0)
+            {
+                Kniga kniga = (Kniga)datagridkniga.SelectedItems[0];
+                if (MessageBox.Show("Удалить?", "Внимание", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        bibEntities.Kniga.Remove(kniga);
+                        bibEntities.SaveChanges();
+                    }
+                    catch (Exception err)
+                    {
+                        MessageBox.Show(err.ToString());
+                    }
+                }
+            }
+        }
+
+        private void Delete2_Click(object sender, RoutedEventArgs e)
+        {
+            if (datagridbron.SelectedItems.Count > 0)
+            {
+                Journal journal = (Journal)datagridbron.SelectedItems[0];
+                if (MessageBox.Show("Удалить?", "Внимание", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        bibEntities.Journal.Remove(journal);
+                        bibEntities.SaveChanges();
+                    }
+                    catch (Exception err)
+                    {
+                        MessageBox.Show(err.ToString());
+                    }
+                }
+            }
+        }
     }
 }

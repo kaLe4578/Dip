@@ -70,7 +70,7 @@ namespace IkApp.Windows
         private bool ModelCheck()
         {
             StringBuilder error = new StringBuilder();
-            int a;
+            
             if (F.Text == "")
                 error.AppendLine("Укажите фамилию");
             if (I.Text == "")

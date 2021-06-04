@@ -65,3 +65,4 @@ C:\Users\Катя\Downloads\Dip\Dip\IkApp\obj\Debug\Windows\EditKnigaWindow.g.cs
 C:\Users\Катя\Downloads\Dip\Dip\IkApp\obj\Debug\Windows\EditJournalWindow.baml
 C:\Users\Катя\Downloads\Dip\Dip\IkApp\obj\Debug\Windows\EditKnigaWindow.baml
 C:\Users\Катя\Downloads\Dip\Dip\IkApp\obj\Debug\IkApp.csproj.ResolveComReference.cache
+C:\Users\Катя\Downloads\Dip\Dip\IkApp\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
