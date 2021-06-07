@@ -15,9 +15,19 @@ namespace IkApp.Model
     
     public partial class BibEntities : DbContext
     {
+        private static BibEntities _context;
+
+
         public BibEntities()
             : base("name=BibEntities")
         {
+        }
+
+        public static BibEntities GetContext()
+        {
+            if (_context == null)
+                _context = new BibEntities();
+            return _context;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
